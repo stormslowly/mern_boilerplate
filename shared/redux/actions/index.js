@@ -8,3 +8,10 @@ export function addNumber(amount =1 ) {
     amount
   }
 }
+
+export function setNumber(number){
+  return {
+    type:ActionTypes.SET_NUMBER,
+    number
+  }
+}

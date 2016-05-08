@@ -1,19 +1,19 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux'
-import {addNumber} from '../redux/actions'
+import {addNumber, setNumber} from '../redux/actions'
 
 class Counter extends Component {
-  constructor(props,context) {
+  constructor(props, context) {
     super(props, context)
   }
 
   componentDidMount() {
-    this.interval = setInterval( ()=> {
+    this.interval = setInterval(()=> {
       this.props.dispatch(addNumber(2))
     }, 500)
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(this.interval)
   }
 
@@ -24,8 +24,14 @@ class Counter extends Component {
       {number}
     </div>
   }
-
 }
+
+Counter.need = [
+  (req, state)=> {
+    var start = Number(req.query.start) || 0
+    return setNumber(start)
+  }
+]
 
 export default connect(function (store) {
   return {number: store.number}

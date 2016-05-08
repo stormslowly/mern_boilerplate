@@ -8,5 +8,7 @@ export function fetchComponentData(store, components, req) {
       .concat(prev);
   }, []);
 
-  return sequence(needs, need => store.dispatch(need(req, store.getState())));
+  return sequence(needs, need =>{
+    return Promise.resolve(store.dispatch(need(req, store.getState())));
+  })
 }
