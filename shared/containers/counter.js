@@ -2,15 +2,7 @@ import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux'
 import {addNumber} from '../redux/actions'
 
-
-function Counter(props) {
-
-  return <div>
-    {props.number || 0}
-  </div>
-}
-
-class _Counter extends Component {
+class Counter extends Component {
   constructor(props,context) {
     super(props, context)
   }
@@ -37,6 +29,6 @@ class _Counter extends Component {
 
 export default connect(function (store) {
   return {number: store.number}
-})(_Counter)
+})(Counter)
 
 
