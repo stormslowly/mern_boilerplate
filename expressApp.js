@@ -23,11 +23,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-// app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/semantic', express.static(path.join(__dirname, '..', 'semantic')))
-app.use('/jquery', express.static(path.join(__dirname, '..', 'node_modules/jquery/dist')))
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(serverSideRender)
 
 app.use(function (req, res, next) {
