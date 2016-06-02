@@ -25,7 +25,5 @@ export function configStore(initialState) {
       store.replaceReducer(nextReducer);
     });
   }
-
   return store
-
 }
